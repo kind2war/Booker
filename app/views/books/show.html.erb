@@ -1,9 +1,8 @@
-
-<h1>Books#show</h1> <!--これは後で消す-->
+<%= stylesheet_link_tag 'bookers/', :media => "all" %>
 <p>Title: <%= @book.title %></p>
 <p>Body: <%= @book.body %></p>
 
   <span>
-    <%= link_to 'Edit', edit_book_path(@book.id) %> &nbsp;| <!--編集機能追加後 変更すること-->
+    <%= link_to 'Edit', edit_book_path(@book.id) %> &nbsp;|
     <%= link_to 'Back', "/books" %>
   </span>

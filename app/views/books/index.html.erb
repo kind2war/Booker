@@ -1,30 +1,10 @@
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bookers</title>
-</head>
-<body>
+<%= stylesheet_link_tag 'bookers/', :media => "all" %>
+
 <h1>Books</h1>
-<p>データが増えるたびに、テーブルに追加される方法なにかないかなぁ</p>
-<table border="1" width="80%">
-  <tr>
-    <th width="13%">Title</th>
-    <th width="52%">Body</th>
-    <th width="5%">s</th>
-    <th width="5%">e</th>
-    <th width="5%">d</th>
-  </tr>
-    <td><!-- %= book.title %--></td>
-    <td><!-- %= book.body % --></td>
-    <td>Show</td>
-    <td>Edit</td>
-    <td>Destroy</td>
-</table>
-<% @books.each do |book| %>
-<%= book.title %>
-<%= book.body %>
-<%= link_to 'Show', book_path(book.id) %>
-<%= link_to 'Edit', edit_book_path(book.id) %>
-<% end %>
-</body>
-</html>
+  <% @books.each do |book| %>
+  <%= book.title %>
+  <%= book.body %>
+  <%= link_to 'Show', book_path(book.id) %>
+  <%= link_to 'Edit', edit_book_path(book.id) %>
+  <%= link_to 'Destroy', book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+  <% end %>

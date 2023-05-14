@@ -1,5 +1,12 @@
-<%= stylesheet_link_tag 'bookers/', :media => "all" %>
 <h1>New book</h1>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this book from being saved:
+    <ul>
+      <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end%>
+    </ul>
+<% end %>
 
 <%= form_with model: @book do |f| %> <!--|f|はブロック変数-->
   <p>Title</p>
